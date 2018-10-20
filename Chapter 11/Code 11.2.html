@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Augmenting modules</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../Ninja2eCode/assert.js"></script>
+</head>
+
+<body>
+  <script>
+    const MouseCounterModule = function() {
+      let numClicks = 0;
+      const handleClick = () =>{
+        alert(++numClicks);
+      };
+
+      return {
+        countCliks: () => {
+          document.addEventListener('click', handleClick);
+        }
+      };
+    }();
+
+    (function(module){
+      let numScrolls = 0;
+      const handleScroll = () => {
+        alert(++numScrolls);
+      }
+
+      module.countScrolls = () => {
+        document.addEventListener('wheel', handleScroll);
+      }
+    })(MouseCounterModule);
+  </script>
+
+</body>
+
+</html>

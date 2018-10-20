@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>A simple callback example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="../Ninja2eCode/assert.js"></script>
+</head>
+
+<body>
+  <script>
+    var text = 'Domo arigato!';
+    report('Before defining functions');
+
+    function useless(ninjaCallBack) {
+      report("I'm useless function");
+      return ninjaCallBack();
+    }
+
+    report('Before making all the calls');
+
+    /*
+    Since the getText function is only used once, we can use an anonymus function in order to:
+    - make the code easier to understand: in this way we put the function near where it's used
+    - avoid to pollute the global space with unnecessary names since this function will not be referenced
+      more than one time
+    */
+    assert(useless(function () { return text }) === text, 'The useless function works! ' + text);
+
+    report('After the calls have been made');
+  </script>
+
+</body>
+
+</html>

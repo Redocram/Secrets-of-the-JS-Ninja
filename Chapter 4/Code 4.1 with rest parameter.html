@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Using the rest parameters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../Ninja2eCode/assert.js"></script>
+</head>
+
+<body>
+  <script>
+    function sum(...valuesToSum) {
+      var sum = 0;
+      for (var i = 0; i < valuesToSum.length; i++){
+        sum += valuesToSum[i];
+      }
+      return sum;
+    }
+
+    assert(sum() === 0, 'We can pass no value');
+    assert(sum(0) === 0, 'We can add the "0" number');
+    assert(sum(1,2) === 3, 'We can add two numbers');
+    assert(sum(1,2,3) === 6, 'We can add three numbers');
+    assert(sum(1,2,3,4) === 10, 'We can add four numbers');
+  </script>
+
+</body>
+
+</html>
