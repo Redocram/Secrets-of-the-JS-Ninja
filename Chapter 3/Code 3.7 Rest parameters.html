@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Rest parameters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="../Ninja2eCode/assert.js"></script>
+</head>
+
+<body>
+  <script>
+    function multiMax(first, ...remainingNumbers) {
+      var sorted = remainingNumbers.sort((a, b) => b - a);
+      return first * sorted[0];
+    }
+
+    assert(multiMax(3, 1, 2, 3) === 9, "3*3 = 9 (First arg, by largest.)");
+  </script>
+</body>
+
+</html>
